@@ -92,7 +92,7 @@
     	$sql = 'update '.$tblName.' set '.$str.' '.$where;
     	$res = mysqli_query($link,$sql); 
     	if ($res){
-    		return mysqli_affected_rows();
+    		return mysqli_affected_rows($link);
     	} 
 
     	$msg = mysqli_error($link);
@@ -150,7 +150,7 @@
 
     	//语句成功
     	if($res){
-    		if(mysql_num_rows($res)>0){
+    		if(mysqli_num_rows($res)>0){
     			//返回数组
     			return mysqli_fetch_assoc($res);
     		}

@@ -19,20 +19,16 @@
 	//包含模板文件
 	function display($viewName)
 	{
-		include '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
+		return '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
 	}
 
 	//分类浏览
 	function index()
 	{
-		//每页显示多少条
-		$perPage = 5;
-		$nowPage = empty($_GET['page']) ? 1 : $_GET['page'];
-		$limit = ' limit '.($nowPage-1)*$perPage.','.$perPage;
 		$link = connect();
 		$sql = "select *,concat(path,id,',') npath from s_type order by npath";
 		$res = mysqli_query($link,$sql);
-		display('type_list.php');
+		include display('type_list.php');
 	}
 
 
@@ -55,7 +51,7 @@
 		} else {
 			echo '插入分类失败...3秒后跳转';
 		}
-		echo "<meta http-equiv='refresh' content='2;url=./type.php?act=insert' />";
+		echo "<meta http-equiv='refresh' content='2;url=./type.php?act=index' />";
 
 	}
 
