@@ -1,5 +1,7 @@
 <?php 
 
+    /*分类列表模板*/
+    
     include "../view/index/header.php";
 
 ?>
@@ -16,11 +18,8 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0" id="search">
   		<tr>
    		 <td width="90%" align="left" valign="middle">
-	         <form method="post" action="./type.php?act=index">
-	         <span>管理员：</span>
-	         <input type="text" name="username" value="" class="text-word">
-	         <input  type="submit" value="查询" class="text-but">
-	         </form>
+	       
+           &nbsp;<br />&nbsp;
          </td>
   		  <td width="10%" align="center" valign="middle" style="text-align:right; width:150px;"></td>
   		</tr>
@@ -55,11 +54,11 @@
         <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['pid']; ?></td>
         <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['path']; ?></td>
         <td align="center" valign="middle" class="borderbottom">
-        <a href="./user.php?act=update&tid=<?php echo $row['tid']; ?>" target="mainFrame" onFocus="this.blur()" class="add">修改名称</a>
+        <a href="./type.php?act=update&tid=<?php echo $row['tid']; ?>" target="mainFrame" onFocus="this.blur()" class="add">修改名称</a>
         <span class="gray">&nbsp;|&nbsp;</span>
-        <a href="./user.php?act=del&tid=<?php echo $row['tid']; ?>" target="mainFrame" onFocus="this.blur()" class="add">添加子类</a>
+        <a href="./type.php?act=insert&<?php echo 'pid='.$row['tid'].'&path='.$row['path'].'&tname='.$row['tname']; ?>" target="mainFrame" onFocus="this.blur()" class="add">添加子类</a>
         <span class="gray">&nbsp;|&nbsp;</span>
-        <a href="./user.php?act=resetPwd&tid=<?php echo $row['tid']; ?>" target="mainFrame" onFocus="this.blur()" class="add">删除</a>
+        <a href="./type.php?act=del&tid=<?php echo $row['tid']; ?>" target="mainFrame" onFocus="this.blur()" class="add">删除</a>
         </td>
       </tr>
 

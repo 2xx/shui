@@ -17,7 +17,7 @@
 
 
 	//包含模板文件
-	function display($viewName)
+	function view($viewName)
 	{
 		return '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
 	}
@@ -26,9 +26,14 @@
 	function index()
 	{
 		$link = connect();
-		$sql = "select *,concat(path,id,',') npath from s_type order by npath";
+		$sql = "select *,concat(path,tid,',') npath from s_type order by npath";
 		$res = mysqli_query($link,$sql);
-		include display('type_list.php');
+		$prevPage='';
+		$nextPage='';
+		$maxPage='';
+		$nowPage='';
+		$cnt = '';
+		include view('type_list.php');
 	}
 
 
@@ -36,9 +41,9 @@
 	function insert()
 	{
 		$pid = isset($_GET['pid']) ? $_GET['pid'] : '0';
-		$path = isset($_GET['path']) ? $_GET['path'] : '0,';
+		$path = isset($_GET['path']) ? $_GET['path'].$pid.',' : '0,';
 		$tname = isset($_GET['tname']) ? $_GET['tname'] : '根分类';
-		display('type_insert.php');
+		include view('type_add.php');
 	}
 
 
@@ -65,7 +70,7 @@
 	function del()
 	{
 		$res = select('s_type'," where pid={$_GET['tid']}");
-		if(!$res){
+		if($res){
 			echo '这种分类下面有子分类,不能删除...3秒后跳转';
 			echo "<meta http-equiv='refresh' content='2;url=./type.php?act=index' />";
 			die;
@@ -93,7 +98,12 @@
 			die;
 		}
 		$row = find('s_type'," where tid={$_GET['tid']}");
-		display('type_update.php');
+		if($row['pid']!=0){
+			$pname = find('s_type'," where tid={$row['pid']}")['tname'];
+		}else{
+			$pname = '根分类';
+		}
+		include view('type_update.php');
 	}
 
 
@@ -115,7 +125,7 @@
 		if (save('s_type'," where tid={$_GET['tid']}")){
 			echo '修改分类信息成功...3秒后跳转';
 		} else {
-			echo '修改分类信息失败...3秒后跳转';
+			echo '没有分类信息被修改...3秒后跳转';
 		}
 		echo "<meta http-equiv='refresh' content='2;url=./type.php?act=index' />";
 	
