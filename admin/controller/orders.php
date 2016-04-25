@@ -17,9 +17,9 @@
 
 
 	//包含模板文件
-	function display($viewName)
+	function view($viewName)
 	{
-		include '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
+		return '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
 	}
 
 
@@ -27,11 +27,15 @@
 	function index()
 	{
 		//每页显示多少条
-		$perPage = 5;
+		$perPage = 0;
 		$nowPage = empty($_GET['page']) ? 1 : $_GET['page'];
+		$prevPage = 0;
+		$nextPage = 0;
+		$maxPage = 0;
+		$cnt='';
 		$limit = ' limit '.($nowPage-1)*$perPage.','.$perPage;
 		$res = select('s_orders');
-		display('orders_list.php');
+		include view('orders_list.php');
 	}
 
 
@@ -41,7 +45,7 @@
 	{
 		$ores = find('s_orders'," where oid={$_GET['oid']}");
 		$dres = select('s_detail'," where oid={$_GET['oid']}");
-		display('orders_detail');
+		include view('orders_detail');
 	}
 
 	
@@ -60,7 +64,7 @@
 			die;
 		}
 		$row = find('s_orders'," where oid={$_GET['oid']}");
-		display('orders_update.php');
+		include view('orders_update.php');
 	}
 
 

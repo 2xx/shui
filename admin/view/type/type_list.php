@@ -45,12 +45,13 @@
 
             while($row = mysqli_fetch_assoc($res)){
 
+            $str = str_repeat('&nbsp;', substr_count($row['path'], ',')*6).'|---';         
                
 
       ?>
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
         <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['tid']; ?></td>
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['tname']; ?></td>
+        <td align="" valign="middle" class="borderright borderbottom"><?php echo $str.$row['tname']; ?></td>
         <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['pid']; ?></td>
         <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['path']; ?></td>
         <td align="center" valign="middle" class="borderbottom">

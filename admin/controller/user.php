@@ -7,6 +7,10 @@
 	//自动执行,初始工作
 	function auto()
 	{	
+		
+		// 开启session,用户登录检测
+		// include "./check.php";
+		
 		//为控制引入数据库操作函数库
 		include "../model/db.php";
 		date_default_timezone_set('PRC');
@@ -16,8 +20,15 @@
 	}
 
 
+	//用户登录界面
+	function login()
+	{	
+		include view('user_login.php');
+	}
+
+
 	//包含模板文件
-	function display($viewName)
+	function view($viewName)
 	{
 		return '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
 	}
@@ -66,7 +77,7 @@
 		$limit = ' limit '.($nowPage-1)*$perPage.','.$perPage;
 
 		$res = select('s_user',$condition,$limit);
-		include display('user_list.php');
+		include view('user_list.php');
 
 	}
 
@@ -74,7 +85,7 @@
 	//添加用户表单
 	function insert()
 	{
-		include display('user_insert.php');
+		include view('user_insert.php');
 	}
 
 
@@ -131,7 +142,7 @@
 			die;
 		}
 		$row = find('s_user'," where uid={$_GET['uid']}");
-		include display('user_update.php');
+		include view('user_update.php');
 	}
 
 
@@ -170,7 +181,7 @@
 	{
 
 		$row = find('s_user'," where uid={$_GET['uid']}");
-		include display('user_repwd.php');
+		include view('user_repwd.php');
 	}
 
 

@@ -80,7 +80,8 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
 
 </style>
 </head>
-<body onselectstart="return false" oncontextmenu=return(false) style="overflow-x:hidden;">
+<!-- <body onselectstart="return false" oncontextmenu=return(false) style="overflow-x:hidden;"> -->
+<body onselectstart="return false" oncontextmenu=return(true) style="overflow-x:hidden;">
 <!--禁止网页另存为-->
 <noscript><iframe scr="*.htm"></iframe></noscript>
 <!--禁止网页另存为-->
@@ -90,7 +91,7 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
     <td align="left" valign="bottom">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td align="left" valign="bottom" id="header-name">侯马经济开发区</td>
+        <td align="left" valign="bottom" id="header-name">T恤专门店后台</td>
         <td align="right" valign="top" id="header-right">
         	<a href="index.html" target="topFrame" onFocus="this.blur()" class="admin-out">注销</a>
             <a href="index.html" target="top" onFocus="this.blur()" class="admin-home">管理首页</a>
@@ -126,21 +127,21 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
     <div style="float: left" id="my_menu" class="sdmenu">
       <div class="collapsed">
         <span>用户管理</span>
-        <a href="./user.php?act=index" target="mainFrame" onFocus="this.blur()">浏览用户</a>
-        <a href="./user.php?act=insert" target="mainFrame" onFocus="this.blur()">添加用户</a>
+        <a href="./user.php?act=index"  onFocus="this.blur()">浏览用户</a>
+        <a href="./user.php?act=insert"  onFocus="this.blur()">添加用户</a>
       </div>
       <div>
         <span>分类管理</span>
-        <a href="./type.php?act=index" target="mainFrame" onFocus="this.blur()">浏览分类</a>
-        <a href="./type.php?act=insert" target="mainFrame" onFocus="this.blur()">添加分类</a>
+        <a href="./type.php?act=index"  onFocus="this.blur()">浏览分类</a>
+        <a href="./type.php?act=insert"  onFocus="this.blur()">添加分类</a>
       </div>
       <div>
         <span>商品管理</span>
-        <a href="./goods.php?act=index" target="mainFrame" onFocus="this.blur()">浏览商品</a>
-        <a href="./goods.php?act=insert" target="mainFrame" onFocus="this.blur()">添加商品</a>
+        <a href="./goods.php?act=index"  onFocus="this.blur()">浏览商品</a>
+        <a href="./goods.php?act=insert"  onFocus="this.blur()">添加商品</a>
       </div>
       <div>
         <span>订单管理</span>
-        <a href="./orders.php?act=index" target="mainFrame" onFocus="this.blur()">浏览订单</a>
+        <a href="./orders.php?act=index"  onFocus="this.blur()">浏览订单</a>
       </div>
     </div>
