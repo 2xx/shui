@@ -26,17 +26,50 @@
 		return '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
 	}
 
+
 	//商品浏览
 	function index()
 	{
-		$perPage = '';
-		$nowPage = '';
-		$prevPage = '';
-		$nextPage = '';
-		$maxPage = '';
-		$cnt = '';
-		$res = select('s_goods');
+		//查询条件
+		$where = [];
+
+		//分页处理
+		$perPage = 5;
+		$curPage = isset($_GET['page']) ? $_GET['page'] : 1;
+
+		//修正当前页
+		if($curPage<1){
+			$curPage = 1;
+		}
+
+			//求最大页
+			$link = connect();
+			if(!empty($where)){
+				$condition = ' where '.implode($where,' and ');
+			}else{
+				$condition = '';
+			}
+			$sql = 'select count(*) cnt from s_goods '.$condition;
+			$res = mysqli_query($link,$sql);
+			$cnt = mysqli_fetch_assoc($res)['cnt'];
+			if ($cnt>1){
+				$maxPage = ceil($cnt/$perPage);
+			} else {
+				$maxPage = 1;
+			}
+
+		if($curPage>$maxPage){
+			$curPage = $maxPage;
+		}
+
+		$prevPage = $curPage-1;
+		$nextPage = $curPage+1;
+
+
+		$limit = ' limit '.($curPage-1)*$perPage.','.$perPage;
+		$res = select('s_goods',$condition.$limit);
 		include view('goods_list.php');
+
 	}
 
 
@@ -113,6 +146,12 @@
 			echo "<meta http-equiv='refresh' content='2;url=./goods.php?act=index' />";
 			die;
 		}
+		
+		$link = connect();
+		$sql = "select *,concat(path,tid) npath from s_type  order by npath";
+		$res = mysqli_query($link,$sql);
+		$typeArr = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		
 		$row = find('s_goods'," where gid={$_GET['gid']}");
 		include view('goods_edit.php');
 	}

@@ -8,6 +8,8 @@
 	//自动处理函数
 	function auto()
 	{
+		session_start();
+		date_default_timezone_set('PRC');
 		include "../model/db.php";
 		isset($_GET['act']) ? $_GET['act']() : '';
 	}

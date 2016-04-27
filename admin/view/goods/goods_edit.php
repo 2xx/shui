@@ -22,6 +22,21 @@
     <td align="left" valign="top">
     <form method="post" action="./goods.php?act=doEdit&gid=<?php echo $row['gid']; ?>" enctype="multipart/form-data">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" id="main-tab">
+	
+	   <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">商品分类</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+          <select name="tid" id="level">
+              <?php
+                  foreach($typeArr as $k=>$v){
+                      $str = str_repeat('&nbsp;', substr_count($v['path'], ',')*6-6).'|---';
+					  $sel = ($row['tid']==$v['tid'])? 'selected' : '';
+                      echo  '<option  '.$sel.'  value='.$v['tid'].' >&nbsp;&nbsp;'.$str.$v['tname'].'</option>';
+                  }
+              ?>
+          </select>
+        </td>
+      </tr>
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
         <td align="right" valign="middle" class="borderright borderbottom bggray">商品名称：</td>
         <td align="left" valign="middle" class="borderright borderbottom main-for">

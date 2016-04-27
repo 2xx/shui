@@ -30,7 +30,25 @@
 		<meta name="coverage" content="CHINA">
 		<meta name="date" content="2015-11-10T18:35:11+08:00">
 
+	<style>
+			#topicPath #login{
+				position: absolute;
+				right:100px;
+			}
 
+			#topicPath #login~li{
+				position:absolute;
+				right:30px;
+			}
+
+			#cart img{
+				position:absolute;
+				top:235px;
+				right:270px;
+				width:50px;
+				height:50px;
+			}
+	</style>
 
 </head>
 <body>
@@ -85,11 +103,24 @@
 	<!--パンくず..-->
 	<ul id="topicPath">
 		<li><a href="./index.php?act=index">首页</a></li>
-		<li><a href="./goods.php?act=index&tid=">西游记主题</a></li>
-		<li><a href="./goods.php?act=index&tid=">十二生肖</a></li>
+		<li><a href="./goods.php?act=index&tid=6">西游记主题</a></li>
+		<li><a href="./goods.php?act=index&tid=7">十二生肖</a></li>
+		<li><a href="./goods.php?act=index&tid=8">其它</a></li>
 		<li><a href="./goods.php?act=index">所有商品</a></li>
+		<li id='cart'><a href="./cart.php?act=index" ><img src="../public/images/nav_myCart.png" alt="我的购物车" width="30" height="27"></a></li>
+		<?php
+
+		if (empty($_SESSION['flag'])){
+			echo "<li id='login'><a href='./user.php?act=login'>登录</a></li>
+			<li ><a href='./user.php?act=reg'>注册</a></li>";
+		} else {
+			echo "<li id='login'><a href='./user.php?act=ucenter'>欢迎,{$_SESSION['userInfo']['username']}</a></li><li ><a href='./user.php?act=logout'>退出</a></li>";
+		}
+
+		?>
 	</ul>
 
+	
 
 	<!--cart.php..-->
 	<aside id="cart_widget">

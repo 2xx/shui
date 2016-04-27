@@ -40,8 +40,10 @@
       </tr>
       <?php
 
+          //序号修正
+          $i=($curPage-1)*$perPage+1;
 
-          $i=1;
+          
           if ($res) {
 
             while($row = mysqli_fetch_assoc($res)){
@@ -80,7 +82,7 @@
     </table></td>
     </tr>
   <tr>
-    <td align="left" valign="top" class="fenye"><?php echo $cnt; ?> 条数据 <?php echo $nowPage; ?>/<?php echo $maxPage; ?> 页&nbsp;&nbsp;
+    <td align="left" valign="top" class="fenye"><?php echo $cnt; ?> 条数据 <?php echo $curPage; ?>/<?php echo $maxPage; ?> 页&nbsp;&nbsp;
     <a href="./goods.php?act=index&page=1" target="mainFrame" onFocus="this.blur()">首页</a>&nbsp;&nbsp;
     <a href="./goods.php?act=index&page=<?php echo $prevPage; ?>" target="mainFrame" onFocus="this.blur()">上一页</a>&nbsp;&nbsp;
     <a href="./goods.php?act=index&page=<?php echo $nextPage; ?>" target="mainFrame" onFocus="this.blur()">下一页</a>&nbsp;&nbsp;

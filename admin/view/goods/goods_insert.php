@@ -77,6 +77,12 @@
         </td>
       </tr>
 
+	  <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">商品描述</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+        <textarea name="descr" cols=50 rows=10 ></textarea>
+        </td>
+      </tr>
 
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
         <td align="right" valign="middle" class="borderright borderbottom bggray">&nbsp;</td>
