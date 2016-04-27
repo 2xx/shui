@@ -25,7 +25,12 @@
 
 	//首页
 	function index()
-	{
+	{	
+		$res = select('s_goods'," limit 6");
+		if(!$res){
+			die('没有商品信息');
+		}
+		$gArr = mysqli_fetch_all($res,MYSQLI_ASSOC);
 		include view('index.php');
 	}
 

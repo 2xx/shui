@@ -7,72 +7,30 @@
 
 
 <section id="loopContents">
+	
+	<?php
 
+		foreach($gArr as $k=>$v){
+
+	?>
 	<div class="loop"><div>
-		<h3><img src="../public/images/LUT-217.png" alt="LUSHANGHAI - LUT-217 折纸猴"></h3>
+		<h3><img src="../../public/uploads/goods/<?php echo $v['picname']; ?>" alt="LUSHANGHAI - LUT-217 折纸猴"></h3>
 			<div class="thumbnail">
 				<ul class="caption">
-					<li>217 折纸猴</li>
-					<li>RMB 99</li>
+					<li><?php echo $v['gname']; ?></li>
+					<li>RMB <?php echo $v['price']; ?></li>
 				</ul>
 			</div><!--thumbnail-->
-		 <a href="http://www.lushanghai.com/217/" class="more-link">路上海T恤 [折纸猴]</a>
+		 <a href="./goods.php?act=detail&gid=<?php echo $v['gid']; ?>" class="more-link">T恤专卖 [<?php echo $v['gname']; ?>]</a>
 	</div></div><!--loop-->
+	<?php
 
-	<div class="loop"><div>
-		<h3><img src="../public/images/LUT-216.png" alt="LUSHANGHAI - LUT-216 申猴"></h3>
-			<div class="thumbnail">
-				<ul class="caption">
-					<li>216 申猴</li>
-					<li>RMB 99</li>
-				</ul>
-			</div><!--thumbnail-->
-		 <a href="http://www.lushanghai.com/216-2/" class="more-link">路上海T恤 [申猴]</a>
-	</div></div><!--loop-->
+		}
 
-	<div class="loop"><div>
-		<h3><img src="../public/images/LUT-215.png" alt="LUSHANGHAI - LUT-215 勇者"></h3>
-			<div class="thumbnail">
-				<ul class="caption">
-					<li>215 勇者</li>
-					<li>RMB 99</li>
-				</ul>
-			</div><!--thumbnail-->
-		 <a href="http://www.lushanghai.com/215/" class="more-link">路上海T恤 [勇者]</a>
-	</div></div><!--loop-->
+	?>
 
-	<div class="loop"><div>
-		<h3><img src="../public/images/LUT-214.png" alt="LUSHANGHAI - LUT-214 霾"></h3>
-			<div class="thumbnail">
-				<ul class="caption">
-					<li>214 霾</li>
-					<li>RMB 99</li>
-				</ul>
-			</div><!--thumbnail-->
-		 <a href="http://www.lushanghai.com/214/" class="more-link">路上海T恤 [霾]</a>
-	</div></div><!--loop-->
 
-	<div class="loop"><div>
-		<h3><img src="../public/images/LUT-210.png" alt="LUSHANGHAI - LUT-210 悟"></h3>
-			<div class="thumbnail">
-				<ul class="caption">
-					<li>210 悟</li>
-					<li>RMB 99</li>
-				</ul>
-			</div><!--thumbnail-->
-		 <a href="http://www.lushanghai.com/210/" class="more-link">路上海T恤 [悟]</a>
-	</div></div><!--loop-->
 
-	<div class="loop"><div>
-		<h3><img src="../public/images/LUT-212.png" alt="LUSHANGHAI - LUT-212 狼图腾"></h3>
-			<div class="thumbnail">
-				<ul class="caption">
-					<li>212 狼图腾</li>
-					<li>RMB 99</li>
-				</ul>
-			</div><!--thumbnail-->
-		 <a href="http://www.lushanghai.com/212/" class="more-link">路上海T恤 [狼图腾]</a>
-	</div></div><!--loop-->
 
 	
 
@@ -85,7 +43,7 @@
 
 
 
-
+<!--
 <nav class="tablenav">
 <span class="page-numbers current">1</span>
 <a class="page-numbers" href="http://www.lushanghai.com/page/2/">2</a>
@@ -97,7 +55,7 @@
 <a class="page-numbers" href="http://www.lushanghai.com/page/10/">10</a>
 <a class="next page-numbers" href="http://www.lushanghai.com/page/2/">下一页 »</a>
 </nav>
-
+-->
 
 		<div id="pagetop"><a href="http://www.lushanghai.com/#Head"><img src="../public/images/60_up.png" alt="Top" width="30" height="30"></a></div><!--#pagetop-->		
 

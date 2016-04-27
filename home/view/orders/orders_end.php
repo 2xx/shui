@@ -1,7 +1,7 @@
 <?php
 
 	include "../view/index/header.php";
-
+	echo "<meta http-equiv='refresh' content='3;url=./index.php?act=index' />";
 ?>
 
 <div class="wrapper" style="display: block;">
@@ -10,11 +10,11 @@
 
 	<div id="orderBox">
 		<h2>您的订单已发送 ..</h2>
-			<h3>订单号[<?php echo $_SESSION['order']['order_num'];?>]</h3>
+			<h3>订单号[<?php echo $order_num; ?>]</h3>
 				<p>自动回信已发送到您填写的邮箱中，如果没有收到请联系我们 ..</p>
 	</div><!--#orderBox-->
 
-<form action="./index.php?act=index" target="_blank" method="post">
+<form action="./index.php?act=index" target="self" method="post">
 
 <input type="submit" value="返回,继续浏览网站" class="submitbtn_cart_st8">
 </form>

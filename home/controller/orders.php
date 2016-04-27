@@ -26,9 +26,17 @@
 	//确认订单
 	function addr()
 	{	
+		//如果没有登录,就去登录
 		if(empty($_SESSION['flag'])){
 			echo '请您先登录......';
 			echo "<meta http-equiv='refresh' content='2;url=./user.php?act=login' />";
+			die;
+		}
+
+		//如果购物车为空,就去挑选商品
+		if(empty($_SESSION['cart'])){
+			echo '购物车为空....请先选购商品...';
+			echo "<meta  http-equiv='refresh' content='2;url=./goods.php?act=index'  />";
 			die;
 		}
 		include view('orders_addr.php');
@@ -86,6 +94,9 @@
 
 	//最后告知
 	function orders_end()
-	{
+	{	
+		$order_num = $_SESSION['order']['order_num'];
+		unset($_SESSION['cart']);
+		unset($_SESSION['order']);
 		include view('orders_end.php');
 	}

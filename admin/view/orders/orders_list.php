@@ -43,26 +43,25 @@
           $i=1;
           if ($res) {
 
-            while($row = mysqli_fetch_assoc($res)){
+            foreach($oArr as $k=>$v){
 
                $status = ['未发货','未收货','完成','作废'];
                
 
       ?>
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['oid']; ?></td>
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['recvman']; ?></td>
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['sum']; ?>" /></td>
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['store']; ?></td>
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $row['cnt']; ?></td>
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $status[$row['status']]; ?></td>
-        <td align="center" valign="middle" class="borderright borderbottom"><?php echo date('Y-m-d',$row['ctime']); ?></td>
+        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $v['oid']; ?></td>
+        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $v['recvman']; ?></td>
+        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $v['sum']; ?></td>
+        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $v['cnt']; ?></td>
+        <td align="center" valign="middle" class="borderright borderbottom"><?php echo $status[$v['status']]; ?></td>
+        <td align="center" valign="middle" class="borderright borderbottom"><?php echo date('Y-m-d',$v['ctime']); ?></td>
         <td align="center" valign="middle" class="borderbottom">
-            <a href="./orders.php?act=edit&oid=<?php echo $row['gid']; ?>"  onFocus="this.blur()" class="add">订单详情</a>
+            <a href="./orders.php?act=detail&oid=<?php echo $v['oid']; ?>"  onFocus="this.blur()" class="add">订单详情</a>
             <?php
-                  if($row['status']==0){
+                  if($v['status']==0){
                     echo "<span class='gray'>&nbsp;|&nbsp;</span>";
-                    echo "<a href='./orders.php?act=send&oid={$row['oid']}'  onFocus='this.blur()' class='add'>发货</a>";
+                    echo "<a href='./orders.php?act=setStatus&oid={$v['oid']}&status=1'  onFocus='this.blur()' class='add'>发货</a>";
             ?>
         </td>
       </tr>

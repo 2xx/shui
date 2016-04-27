@@ -68,7 +68,11 @@
 
 		$limit = ' limit '.($curPage-1)*$perPage.','.$perPage;
 		$res = select('s_goods',$condition.$limit);
-		$gArr = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		if ($res){
+			$gArr = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		} else {
+			$gArr = [];
+		}
 		include view('goods_list.php');
 	}
 

@@ -45,11 +45,15 @@
 				
 				$_SESSION['order']['sum'] = 0;
 				$_SESSION['order']['cnt'] = 0;
-				foreach($_SESSION['cart'] as $k=>$v){
 
-					$_SESSION['cart'][$k]['money'] = $v['price']*$v['cnt'];
-					$_SESSION['order']['sum'] += $_SESSION['cart'][$k]['money'];
-					$_SESSION['order']['cnt'] += $v['cnt'];
+				//如果不存在购物车数组,就跳过去
+				if(isset($_SESSION['cart'])){
+
+					foreach($_SESSION['cart'] as $k=>$v){
+
+						$_SESSION['cart'][$k]['money'] = $v['price']*$v['cnt'];
+						$_SESSION['order']['sum'] += $_SESSION['cart'][$k]['money'];
+						$_SESSION['order']['cnt'] += $v['cnt'];
 
 			?>
 	
@@ -69,8 +73,8 @@
 
 			<?php
 
+					}
 				}
-
 			?>
 
 

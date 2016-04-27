@@ -103,3 +103,48 @@
 		header('location:./index.php?act=index');
 	}
 	
+
+	//用户中心页面
+	function ucenter()
+	{	
+		$row = find('s_user'," where uid={$_SESSION['userInfo']['uid']}");
+		include view('user_center.php');
+	}
+
+
+	//用户信息修改
+	function doupdate()
+	{
+		if($_FILES['face']['error']==0){
+			
+		}
+		if(empty($_GET['uid'])){
+			echo '没有提交用户ID';
+			echo "<meta http-equiv='refresh' content='2;url=./index.php?act=index' />";
+			die;
+		}
+
+		
+		//如果两个密码为空,即为不修改密码
+		if(empty($_POST['userpwd1']) && empty($_POST['userpwd2'])){
+				unset($_POST['userpwd1']);
+				unset($_POST['userpwd2']);
+				header('location:./index.php?act=index');
+				die;
+		}
+
+		//如果两次密码不一致
+		if($_POST['userpwd1']!=$_POST['userpwd2']){
+			echo '两次密码不一致';
+			echo "<meta http-equiv='refresh' content='2;url=./user.php?act=ucenter' />";
+			die;
+		}
+
+		$rows = save('s_user'," where uid={$_GET['uid']}");
+		if($rows){
+			echo '修改订单信息成功!';
+		} else {
+			echo '修改订单不成功';
+		}
+
+	}

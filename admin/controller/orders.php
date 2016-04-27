@@ -35,6 +35,7 @@
 		$cnt='';
 		$limit = ' limit '.($nowPage-1)*$perPage.','.$perPage;
 		$res = select('s_orders');
+		$oArr = mysqli_fetch_all($res,MYSQLI_ASSOC);
 		include view('orders_list.php');
 	}
 
@@ -43,9 +44,14 @@
 	//订单详情
 	function detail()
 	{
-		$ores = find('s_orders'," where oid={$_GET['oid']}");
+		$oInfo = find('s_orders'," where oid={$_GET['oid']}");
 		$dres = select('s_detail'," where oid={$_GET['oid']}");
-		include view('orders_detail');
+		$dArr = mysqli_fetch_all($dres,MYSQLI_ASSOC);
+		foreach($dArr as $k=>$v){
+			$dArr[$k]['gInfo'] = find('s_goods'," where gid={$v['gid']}");
+			$dArr[$k]['money'] = $v['price']*$v['cnt'];
+		}
+		include view('orders_detail.php');
 	}
 
 	
@@ -99,3 +105,15 @@
 	}
 
 
+	/**
+	 * 功能 设置订单状态
+	 * 参数 $_GET['oid'] 要修改的订单
+	 * 参数 $_GET['status'] 要设置的值
+	 * 返回 跳转回订单列表页
+	 */
+	function setStatus()
+	{
+		$_POST['status'] = $_GET['status'];
+		save('s_orders'," where oid={$_GET['oid']}");
+		header('location:./orders.php?act=index');
+	}
