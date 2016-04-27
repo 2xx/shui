@@ -35,12 +35,12 @@
 	{
 		$row = find('s_goods'," where gid={$_GET['gid']}");
 		if (empty($_SESSION['cart'][$_GET['gid']])){
+			$_SESSION['cart'][$_GET['gid']] = $row;
 			$_SESSION['cart'][$_GET['gid']]['cnt'] = 1;
-			$_SESSION['cart'][$_GET['gid']]['price'] = $row;
 		} else {
 			$_SESSION['cart'][$_GET['gid']]['cnt'] += 1;
 		}
-
+		
 		header('location:./cart.php?act=index');
 		
 	}
@@ -74,4 +74,10 @@
 	}
 
 
+	//从购物车中移除某个商品
+	function del()
+	{
+		unset($_SESSION['cart'][$_GET['gid']]);
+		header('location:./cart.php?act=index');
+	}
 	

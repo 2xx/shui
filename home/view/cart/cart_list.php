@@ -23,11 +23,8 @@
 	    </div><!--cart_caption-->
 
 
-		<form name="Form" method="post" action="http://www.lushanghai.com/wp-content/plugins/wp-olivecart/cart.php">
-		<input type="hidden" name="mode" value="retry">
-		<input type="hidden" name="step" value="2">
-
-
+		<form name="Form" method="post" action="./orders.php?act=addr">
+		
 		<table class="Receipt">
 			<thead>
 			<tr>
@@ -35,6 +32,7 @@
     				<th>单价</th>
     				<th>数量</th>
     				<th class="ReceiptContent">小计</th>
+    				<th >操作</th>
 			</tr>
 			</thead>
 
@@ -46,18 +44,26 @@
 			<?php
 				
 				$_SESSION['order']['sum'] = 0;
+				$_SESSION['order']['cnt'] = 0;
 				foreach($_SESSION['cart'] as $k=>$v){
+
 					$_SESSION['cart'][$k]['money'] = $v['price']*$v['cnt'];
 					$_SESSION['order']['sum'] += $_SESSION['cart'][$k]['money'];
+					$_SESSION['order']['cnt'] += $v['cnt'];
 
 			?>
 	
 			<tbody>
 			<tr>
     				<td class="ReceiptBox2"><?php echo $v['gname']; ?><input type="hidden" name="number[]" value="LUT-216-L">...</td>
-    				<td><?php echo $v['gname']; ?></td>
-					<td><input name="count[]" type="text" value="1" class="inputitem01" size="2"><br>
+    				<td><?php echo $v['price']; ?></td>
+					<td>
+					<a href="./cart.php?act=cartCut&gid=<?php echo $k; ?>" style='font-size:17px;'>-</a>
+					<input name="count[]" type="text" value="<?php echo $v['cnt']; ?>" class="inputitem01" size="2">
+					<a href="./cart.php?act=cartAdd&gid=<?php echo $k; ?>" style='font-size:17px;'>+</a>
+					<br>
     				</td><td class="ReceiptContent2"><?php echo $_SESSION['cart'][$k]['money']; ?></td>
+    				<td><a href="./cart.php?act=del&gid=<?php echo $k; ?>">移除</a></td>
 			</tr>
 			</tbody>
 
@@ -78,22 +84,23 @@
 		</table>
 
 
-</form>
 
 
+		<!--
 		<input type="submit" value="× 削除" onclick="location.href =(&#39;cart.php?mode=empty&amp;step=2&#39;);" class="cartBtn_option">
 		<input type="submit" value="再次计算" onclick="document.Form.submit();" class="cartBtn_option">
-
+		-->
 		
 			<p class="clear"><br></p>
 
-		<input type="submit" value="继续购物" onclick="location.href=&#39;/&#39;" class="formBtn">
+		<input type="submit" value="继续购物" onclick="location.href='./index.php?act=index';return false;" class="formBtn">
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="submit" value="购物" onclick="" class="formBtn">
+		<input type="submit" value="去结算" onclick="" class="formBtn">
+</form>
 
 </section><!--#cartContents-->
 
-		<div id="pagetop"><a href="http://www.lushanghai.com/wp-content/plugins/wp-olivecart/cart.php?step=2#Head"><img src="./我的购物车｜路上海T恤设计 LUSHANGHAI_files/60_up.png" alt="Top" width="30" height="30"></a></div><!--#pagetop-->		
+		<div id="pagetop"><a href="http://www.lushanghai.com/wp-content/plugins/wp-olivecart/cart.php?step=2#Head"><img src="../public/images/60_up.png" alt="Top" width="30" height="30"></a></div><!--#pagetop-->		
 
 
 <footer id="Foot">
@@ -102,13 +109,13 @@
 
 		<ul id="footerNav">
 			<li><a href="http://www.lushanghai.com/">
-			<img src="./我的购物车｜路上海T恤设计 LUSHANGHAI_files/nav_tshirt.png" alt="购买T恤" width="30" height="30"></a></li>
+			<img src="../public/images/nav_tshirt.png" alt="购买T恤" width="30" height="30"></a></li>
 			<li><a href="http://www.lushanghai.com/wp-content/plugins/wp-olivecart/cart.php" rel="nofollow">
-			<img src="./我的购物车｜路上海T恤设计 LUSHANGHAI_files/nav_myCart.png" alt="我的购物车" width="30" height="30"></a></li>
+			<img src="../public/images/nav_myCart.png" alt="我的购物车" width="30" height="30"></a></li>
 			<li><a href="http://www.lushanghai.com/contact/">
-			<img src="./我的购物车｜路上海T恤设计 LUSHANGHAI_files/nav_phone.png" alt="联系方式" width="30" height="30"></a></li>
+			<img src="../public/images/nav_phone.png" alt="联系方式" width="30" height="30"></a></li>
 			<li><a href="http://www.lushanghai.com/about/">
-			<img src="./我的购物车｜路上海T恤设计 LUSHANGHAI_files/nav_about.png" alt="关于我们" width="30" height="30"></a></li>
+			<img src="../public/images/nav_about.png" alt="关于我们" width="30" height="30"></a></li>
 		</ul>
 
 		<p><small><script type="text/javascript">copyright();</script>Copyright 2016 www.LUSHANGHAI.com</small></p>

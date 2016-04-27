@@ -2426,7 +2426,7 @@ input[type="text"].dropdown-readonly{
 	color:#FFF;
 	width:90%;
 	max-width:680px;
-	margin:20mm auto 30mm auto;
+	margin:0mm auto 30mm auto;
 	padding:0;
 	text-align:center;
 	position:relative;
