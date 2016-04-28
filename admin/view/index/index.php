@@ -9,124 +9,51 @@
 <!--   **************************************************************************************** -->
 
 <div style='display:inline-block;position:absolute;left:250px;top:130px;width:1024px;'>
-<table width="99%" border="0" cellspacing="0" cellpadding="0" id="searchmain">
+
+  
+
+  <table width="99%" border="0" cellspacing="0" cellpadding="0" id="main">
   <tr>
-    <td width="99%" align="left" valign="top">您的位置：用户管理</td>
-  </tr>
-  <tr>
-    <td align="left" valign="top">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="search">
-  		<tr>
-   		 <td width="90%" align="left" valign="middle">
-	         <form method="post" action="">
-	         <span>管理员：</span>
-	         <input type="text" name="" value="" class="text-word">
-	         <input name="" type="button" value="查询" class="text-but">
-	         </form>
-         </td>
-  		  <td width="10%" align="center" valign="middle" style="text-align:right; width:150px;"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">新增管理员</a></td>
-  		</tr>
-	</table>
+    <td colspan="2" align="left" valign="top">
+    <span class="time"><strong>上午好！admin</strong><u>[超级管理员]</u></span>
+    <div class="top"><span class="left">您上次的登灵时间：2012-05-03  12:00   登录IP：127.0.0.1 &nbsp;&nbsp;&nbsp;&nbsp;如非您本人操作，请及时</span><a href="index.html" target="mainFrame" onFocus="this.blur()">更改密码</a></div>
+    <div class="sec">这是您第<span class="num">80</span>次,登录！</div>
     </td>
   </tr>
   <tr>
-    <td align="left" valign="top">
-    
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="main-tab">
-      <tr>
-        <th align="center" valign="middle" class="borderright">编号</th>
-        <th align="center" valign="middle" class="borderright">管理帐号</th>
-        <th align="center" valign="middle" class="borderright">权限</th>
-        <th align="center" valign="middle" class="borderright">锁定</th>
-        <th align="center" valign="middle" class="borderright">最后登录</th>
-        <th align="center" valign="middle">操作</th>
-      </tr>
-      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">1</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr class="bggray" onMouseOut="this.style.backgroundColor='#f9f9f9'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">2</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">3</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr class="bggray" onMouseOut="this.style.backgroundColor='#f9f9f9'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">4</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">5</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr class="bggray" onMouseOut="this.style.backgroundColor='#f9f9f9'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">6</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">7</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr class="bggray" onMouseOut="this.style.backgroundColor='#f9f9f9'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">8</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">9</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-      <tr class="bggray" onMouseOut="this.style.backgroundColor='#f9f9f9'" onMouseOver="this.style.backgroundColor='#edf5ff'">
-        <td align="center" valign="middle" class="borderright borderbottom">10</td>
-        <td align="center" valign="middle" class="borderright borderbottom">admin</td>
-        <td align="center" valign="middle" class="borderright borderbottom">创始人</td>
-        <td align="center" valign="middle" class="borderright borderbottom">已锁定</td>
-        <td align="center" valign="middle" class="borderright borderbottom">2013-04-26 11:00:59</td>
-        <td align="center" valign="middle" class="borderbottom"><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="add.html" target="mainFrame" onFocus="this.blur()" class="add">删除</a></td>
-      </tr>
-    </table></td>
-    </tr>
+    <td align="left" valign="top" width="50%">
+    <div class="main-tit">网站信息</div>
+    <div class="main-con">
+    会员注册：开启<br/>
+会员投稿：开启<br/>
+管理员个数：<font color="#538ec6"><strong>6</strong></font> 人<br/>
+登陆者IP：192.168.1.156<br/>
+程序编码：UTF-8<br/>
+    </div>
+    </td>
+    <td align="left" valign="top" width="49%">
+    <div class="main-tit">服务器信息</div>
+    <div class="main-con">
+服务器软件：Apache/2.2.6 (Win32) PHP/5.2.5<br/>
+PHP版本：5.2.5<br/>
+MYSQL版本：5.0.45-community-nt<br/>
+魔术引用：开启 (建议开启)<br/>
+使用域名：192.168.1.124 <br/>
+    </div>
+    </td>
+  </tr>
   <tr>
-    <td align="left" valign="top" class="fenye">11 条数据 1/1 页&nbsp;&nbsp;<a href="#" target="mainFrame" onFocus="this.blur()">首页</a>&nbsp;&nbsp;<a href="#" target="mainFrame" onFocus="this.blur()">上一页</a>&nbsp;&nbsp;<a href="#" target="mainFrame" onFocus="this.blur()">下一页</a>&nbsp;&nbsp;<a href="#" target="mainFrame" onFocus="this.blur()">尾页</a></td>
+    <td colspan="2" align="left" valign="top">
+    <div class="main-corpy">系统提示</div>
+    <div class="main-order">1=>如您在使用过程有发现出错请及时与我们取得联系；为保证您得到我们的后续服务，强烈建议您购买我们的正版系统或向我们定制系统！<br/>
+2=>强烈建议您将IE7以上版本或其他的浏览器</div>
+    </td>
   </tr>
 </table>
+   
+   
+   
+ 
 </div>
 
 

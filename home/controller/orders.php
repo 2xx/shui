@@ -100,3 +100,67 @@
 		unset($_SESSION['order']);
 		include view('orders_end.php');
 	}
+
+
+	//用户订单查询
+	function uorder()
+	{
+		if(isset($_SESSION['userInfo']['uid'])){
+			$uid = $_SESSION['userInfo']['uid'];
+		} else {
+			echo '缺少用户ID...';
+			echo "<meta http-equiv='refresh' content='2;url=./index.php?act=index'  />";
+			die;
+		}
+		$res = select('s_orders'," where uid={$uid}");
+		$oArr = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		include view('order_user.php');
+	}
+
+
+	/**
+	 * 功能 设置订单状态
+	 * 参数 $_GET['oid'] 要修改的订单
+	 * 参数 $_GET['status'] 要设置的值
+	 * 返回 跳转回订单列表页
+	 */
+	function setStatus()
+	{
+		$_POST['status'] = $_GET['status'];
+		save('s_orders'," where oid={$_GET['oid']}");
+		header('location:./orders.php?act=uorder');
+	}
+
+
+
+	//用户订单详情
+	function detail()
+	{
+		if(isset($_SESSION['userInfo']['uid'])){
+			$uid = $_SESSION['userInfo']['uid'];
+		} else {
+			echo '缺少用户ID...';
+			echo "<meta http-equiv='refresh' content='2;url=./index.php?act=index'  />";
+			die;
+		}
+
+		if(isset($_GET['oid'])){
+			$oid = $_GET['oid'];
+		} else {
+			echo '缺少订单ID...';
+			echo "<meta http-equiv='refresh' content='2;url=./index.php?act=index'  />";
+			die;
+		}
+
+		//准备详情数据
+		$res = select('s_detail'," where oid={$oid}");
+		$oArr = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		foreach($oArr as $k=>$v){
+			$oArr[$k]['gInfo'] = find('s_goods'," where gid={$v['gid']}");
+		}
+
+		//准备订单信息
+		$oInfo = find('s_orders'," where oid={$oid}");
+
+		include view('orders_detail.php');
+	}

@@ -15,7 +15,7 @@
 		<div class="panel panel-default" style="margin-top:50px;">
 		  <div class="panel-heading"><h3><b>用户信息修改</b></h3></div>
 		  <div class="panel-body">
-				<form class="form-horizontal" action="./user.php?act=save" method="post" enctype="multipart/form-data">
+				<form class="form-horizontal" action="./user.php?act=doupdate" method="post" enctype="multipart/form-data">
 				<input type='hidden' name='uid' value="<?php echo $row['uid']; ?>" />
 		  <div class="form-group">
 		    <label for="account" class="col-md-2 control-label">账号</label>
@@ -42,7 +42,7 @@
 		    <div class="col-md-4" style="padding-top:20px;">
 		      <input type="file" class="form-control" id="authlev" name="face"  placeholder="" >
 		    </div>
-			<div class="col-md-2" style="margin-top:-40px;height:100px;"><img  style="border-radius:5px;overflow:hidden;"  height="100px" src="<?php echo '../../public/uploads/face/'.$row['face']; ?>"  /></div>
+			<div class="col-md-2" style="margin-top:-40px;height:100px;"><img  style="border-radius:5px;overflow:hidden;"  height="100px" src="<?php echo '../../public/face/'.$row['face']; ?>"  /></div>
 		  </div>
 		  <div class="form-group">
 		    <label for="authlev" class="col-md-2 control-label">性别</label>
@@ -68,7 +68,7 @@
 		  <div class="form-group">
 		    <label for="usraddr" class="col-md-2 control-label">收货地址</label>
 		    <div class="col-md-6">
-		      <input type="text" class="form-control" id="usraddr" name="addr" placeholder="">
+		      <input type="text" class="form-control" id="usraddr" name="addr"  value="<?php echo $row['addr']; ?>" placeholder="">
 		    </div>
 		  </div>
 		  <div class="form-group">

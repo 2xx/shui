@@ -9,7 +9,7 @@
 	{	
 		
 		// 开启session,用户登录检测
-		// include "./check.php";
+		include "./check.php";
 		
 		//为控制引入数据库操作函数库
 		include "../model/db.php";
@@ -26,6 +26,36 @@
 		include view('user_login.php');
 	}
 
+	function dologin()
+	{
+		// ECHO '111111';die;
+		if($_SESSION['code']!=$_POST['code']){
+			echo '验证码不对...';
+			echo "<meta http-equiv='refresh' content='2;url=./index.php?act=login' />";
+			die;
+		}
+		$_POST['password'] = md5($_POST['password']);
+		$uInfo = find('s_user'," where username='{$_POST['username']}'");
+		if($uInfo){
+			if($uInfo['password']==$_POST['password']){
+				$_SESSION['userInfo'] = $uInfo;
+				$_SESSION['flag'] = true;
+				echo '登录成功';
+				echo "<meta http-equiv='refresh' content='2;url=./index.php?act=index' />";
+				die;
+			}
+		}
+		echo '用户名或密码不对...';
+		echo "<meta http-equiv='refresh' content='2;url=./index.php?act=login' />";
+	}
+
+
+	//后台注销
+	function logout()
+	{
+		unset($_SESSION['flag']);
+		header('location:./user.php?act=login');
+	}
 
 	//包含模板文件
 	function view($viewName)

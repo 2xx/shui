@@ -11,7 +11,7 @@
 		include "../model/db.php";
 
 		//开启session, 检查是否登录
-		// include "./check.php";
+		include "./check.php";
 		date_default_timezone_set('PRC');
 
         //判断$_GET['act']所代表的函数是否存在,不存在,就什么也不执行

@@ -8,21 +8,22 @@
 	//自动执行,初始工作
 	function auto()
 	{	
+		include "./check.php";
 		include "../model/db.php";
 		isset($_GET['act']) ? $_GET['act']() : '';
 	}
 
 
 	//包含模板文件
-	function display($viewName)
+	function view($viewName)
 	{
-		include '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
+		return '../view/'.pathinfo(__FILE__,PATHINFO_FILENAME).'/'.$viewName;
 	}
 
 	//后台首页
 	function index()
 	{
-		display('index.php');
+		include view('index.php');
 	}
 
 

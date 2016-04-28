@@ -116,12 +116,20 @@
 	function doupdate()
 	{
 		if($_FILES['face']['error']==0){
+
+			include "../public/fileUpload.php";
+			$path = '../../public/face/';
+			$res = fileUpload($path,$_FILES['face']);
+			$_POST['face'] = $res['picname'];
 			
 		}
-		if(empty($_GET['uid'])){
+
+		if(empty($_SESSION['userInfo']['uid'])){
 			echo '没有提交用户ID';
 			echo "<meta http-equiv='refresh' content='2;url=./index.php?act=index' />";
 			die;
+		} else {
+			$uid = $_SESSION['userInfo']['uid'];
 		}
 
 		
@@ -129,22 +137,28 @@
 		if(empty($_POST['userpwd1']) && empty($_POST['userpwd2'])){
 				unset($_POST['userpwd1']);
 				unset($_POST['userpwd2']);
-				header('location:./index.php?act=index');
-				die;
+		}else{
+
+				//如果两次密码不一致
+				if($_POST['userpwd1']!=$_POST['userpwd2']){
+					echo '两次密码不一致';
+					echo "<meta http-equiv='refresh' content='2;url=./user.php?act=ucenter' />";
+					die;
+				} else {   //不为空,且相等
+					$_POST['password'] = md5($_POST['userpwd1']);
+					unset($_POST['userpwd1']);
+					unset($_POST['userpwd2']);
+				}
+			
 		}
 
-		//如果两次密码不一致
-		if($_POST['userpwd1']!=$_POST['userpwd2']){
-			echo '两次密码不一致';
-			echo "<meta http-equiv='refresh' content='2;url=./user.php?act=ucenter' />";
-			die;
-		}
-
-		$rows = save('s_user'," where uid={$_GET['uid']}");
+		
+		$rows = save('s_user'," where uid={$uid}");
 		if($rows){
 			echo '修改订单信息成功!';
 		} else {
 			echo '修改订单不成功';
 		}
 
+		echo "<meta http-equiv='refresh' content='3;url=./index.php?act=index' />";
 	}

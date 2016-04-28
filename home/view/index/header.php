@@ -48,6 +48,17 @@
 				width:50px;
 				height:50px;
 			}
+
+			#pmenu{
+				display:none;
+			}
+
+			#topicPath>#login:hover>#pmenu{
+				display:block;
+				position:absolute;
+				top:30px;
+				right:10px;
+			}
 	</style>
 
 </head>
@@ -114,7 +125,8 @@
 			echo "<li id='login'><a href='./user.php?act=login'>登录</a></li>
 			<li ><a href='./user.php?act=reg'>注册</a></li>";
 		} else {
-			echo "<li id='login'><a href='./user.php?act=ucenter'>欢迎,{$_SESSION['userInfo']['username']}</a></li><li ><a href='./user.php?act=logout'>退出</a></li>";
+			echo "<li id='login'><a href='./user.php?act=ucenter'>欢迎,{$_SESSION['userInfo']['username']}</a><ul id='pmenu'><li><a href='./user.php?act=ucenter'>个人信息</a></li><li><a href='./orders.php?act=uorder'>个人订单</a></li></ul>
+			</li><li ><a href='./user.php?act=logout'>退出</a></li>";
 		}
 
 		?>
